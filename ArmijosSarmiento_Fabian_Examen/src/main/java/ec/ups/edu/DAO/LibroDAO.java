@@ -12,7 +12,7 @@ import ec.ups.edu.EN.Libro;
 @Stateless
 public class LibroDAO {
 
-	@PersistenceContext(name="EXAMENMurilloJordanPersistenceUnit")
+	@PersistenceContext(name="ArmijosSarmiento_Fabian_ExamenPersistenceUnit")
 	private EntityManager em;
 	public void insertar(Libro libro) {
 		em.persist(libro);

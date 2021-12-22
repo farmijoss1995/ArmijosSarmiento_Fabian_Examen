@@ -15,7 +15,7 @@ public class Autor {
 	
 	private String nombre;
 	
-	private String correo;
+	private String nacionalidad;
 	
 	public Autor() {
 		
@@ -37,16 +37,17 @@ public class Autor {
 		this.nombre = nombre;
 	}
 
-	public String getCorreo() {
-		return correo;
+	public String getNacionalidad() {
+		return nacionalidad;
 	}
 
-	public void setCorreo(String correo) {
-		this.correo = correo;
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
 	}
 
 	@Override
 	public String toString() {
-		return "Autor [idAutor=" + idAutor + ", nombre=" + nombre + ", correo=" + correo + "]";
+		return "Autor [idAutor=" + idAutor + ", nombre=" + nombre + ", nacionalidad=" + nacionalidad + "]";
 	}
 }
+

@@ -26,10 +26,9 @@ public class Libro  implements Serializable{
 	
 	private String titulo;
 	
-	@Column(name="anio_edicion")
-	private int anioEdicion;
+	@Column(name="num_pag")
+	private int numPag;
 	
-	private String editorial;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="id_libro")
@@ -63,20 +62,12 @@ public class Libro  implements Serializable{
 		this.titulo = titulo;
 	}
 
-	public int getAnioEdicion() {
-		return anioEdicion;
+	public int getNumPag() {
+		return numPag;
 	}
 
-	public void setAnioEdicion(int anioEdicion) {
-		this.anioEdicion = anioEdicion;
-	}
-
-	public String getEditorial() {
-		return editorial;
-	}
-
-	public void setEditorial(String editorial) {
-		this.editorial = editorial;
+	public void setNumPag(int numPag) {
+		this.numPag = numPag;
 	}
 
 	public List<Capitulo> getListaCapitulos() {
@@ -95,7 +86,7 @@ public class Libro  implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Libro [idLibro=" + idLibro + ", codISNN=" + codISNN + ", titulo=" + titulo + ", anioEdicion="
-				+ anioEdicion + ", editorial=" + editorial + ", listaCapitulos=" + listaCapitulos + "]";
+		return "Libro [idLibro=" + idLibro + ", codISNN=" + codISNN + ", titulo=" + titulo + ", numPag="
+				+ numPag +  ", listaCapitulos=" + listaCapitulos + "]";
 	}
 }

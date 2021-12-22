@@ -12,7 +12,7 @@ import ec.ups.edu.EN.Autor;
 @Stateless
 public class AutorDAO {
 
-	@PersistenceContext(name="EXAMENMurilloJordanPersistenceUnit")
+	@PersistenceContext(name="ArmijosSarmiento_Fabian_ExamenPersistenceUnit")
 	private EntityManager em;
 	
 	public List<Autor> listar(){
