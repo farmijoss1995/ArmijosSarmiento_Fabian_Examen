@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import ec.ups.edu.EN.Autor;
 import ec.ups.edu.EN.Capitulo;
 import ec.ups.edu.EN.Libro;
+import ec.ups.edu.ON.GestionAutor;
 import ec.ups.edu.ON.GestionLibro;
 
 @ManagedBean
@@ -19,7 +20,15 @@ public class LibroBean {
 	@Inject
 	private GestionLibro libON;
 	
+	private GestionAutor autON;
+	
+	public GestionAutor getAutON() {
+		return autON;
+	}
+
 	private Libro newLibro;
+	
+	private Autor newAutor;
 	
 	private List<Libro> listado;
 	
@@ -29,6 +38,7 @@ public class LibroBean {
 	
 	@PostConstruct
 	public void init() {
+		newAutor = new Autor();
 		newLibro = new Libro();
 		Capitulo c = new Capitulo();
 		newLibro.addCapitulo(c);
@@ -62,6 +72,22 @@ public class LibroBean {
 		this.libON = libON;
 	}
 
+	public void setAutON(GestionAutor autON) {
+		this.autON = autON;
+	}
+
+
+
+	public Autor getNewAutor() {
+		return newAutor;
+	}
+
+
+
+	public void setNewAutor(Autor newAutor) {
+		this.newAutor = newAutor;
+	}
+
 
 	public Libro getNewLibro() {
 		return newLibro;
@@ -90,7 +116,15 @@ public class LibroBean {
 	public void setCodAutor(String codAutor) {
 		this.codAutor = codAutor;
 	}
-
+	
+	public String guardarDatosA() throws Exception {
+		System.out.println(this.toString());
+		
+		autON.guardarAutor(newAutor);
+		
+		return "listado";
+	}
+	
 	public String guardarDatos() throws Exception {
 		System.out.println(this.toString());
 		
@@ -102,6 +136,12 @@ public class LibroBean {
 	public String addCapitulo() {
 		Capitulo c = new Capitulo();
 		newLibro.addCapitulo(c);
+		return null;
+	}
+	
+	public String addAutor() {
+		Autor a = new Autor();
+		
 		return null;
 	}
 

@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import ec.ups.edu.EN.Autor;
+import ec.ups.edu.EN.Libro;
 
 @Stateless
 public class AutorDAO {
@@ -23,5 +24,8 @@ public class AutorDAO {
 	
 	public Autor buscar(int idAutor) {
 		return em.find(Autor.class, idAutor);
+	}
+	public void insertar(Autor autor) {
+		em.persist(autor);
 	}
 }

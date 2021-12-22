@@ -15,27 +15,13 @@ import ec.ups.edu.EN.Libro;
 @Stateless
 public class GestionAutor {
 
-	@Inject
-	private LibroDAO ldao;
-	@Inject
-	private CapituloDAO cdao;
+	
 	
 	@Inject
 	private AutorDAO adao;
 	
-	public void guardarLibro(Libro libro) {
-		ldao.insertar(libro);
+	public void guardarAutor(Autor autor) {
+		adao.insertar(autor);
 	}
 	
-	public List<Libro> listadoLibros(){
-		return ldao.listar();
-	}
-	
-	public List<Capitulo> libCapitulos(int idLibro){
-		return cdao.listar(idLibro);
-	}
-	
-	public Autor busqueda(int idAutor) {
-		return adao.buscar(idAutor);
-	}
 }

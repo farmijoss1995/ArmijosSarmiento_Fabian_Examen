@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Crear Libro</title>
+
+</h:head>
+
+<h:body>
+
+
+	<h1>Ingreso de Autor</h1>
+
+	<h:form>
+	
+Nombre_Autor:<h:inputText value="#{libroBean.newAutor.nombre}" />
+		<br />
+Título:<h:inputText value="#{libroBean.newAutor.nacionalidad}" />
+		<br />
+
+
+		<h:commandButton action="#{libroBean.addAutor}"
+							value="Añadir Autor" >
+							
+						</h:commandButton>
+						</h:form>
+
+	<h1>Ingreso de Libros</h1>
+
+	<h:form>
+	
+ISBN:<h:inputText value="#{libroBean.newLibro.codISNN}" />
+		<br />
+Título:<h:inputText value="#{libroBean.newLibro.titulo}" />
+		<br />
+Numero_Paginas:<h:inputText value="#{libroBean.newLibro.numPag}" />
+		<br />
+
+
+		<h:commandButton action="#{libroBean.addCapitulo}"
+							value="Añadir Capitulo" >
+							<f:ajax render="tblCapitulos" execute="tblCapitulos" />
+						</h:commandButton>
+
+		<h:dataTable id="tblCapitulos"
+			value="#{libroBean.newLibro.listaCapitulos}" var="capitulo">
+			<h:column>
+				<f:facet name="header"> Título</f:facet>
+				<h:inputText value="#{capitulo.capTitulo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header"> Número de Capitulo</f:facet>
+				<h:inputText value="#{capitulo.numeroCap}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header"> ID Autor</f:facet>
+				<h:inputText id="aut" value="#{libroBean.codAutor}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header"> Cargar</f:facet>
+				<h:commandButton action="#{libroBean.busAutor()}"
+							value="Añadir Autor" >
+							<f:ajax render=" tblCapitulos aut" execute="aut" />
+						</h:commandButton>
+			</h:column>
+
+		</h:dataTable>
+
+		<h:commandButton action="#{libroBean.guardarDatos()}"
+			value="Guardar" />
+
+	</h:form>
+
+</h:body>
+
+</html>
