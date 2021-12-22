@@ -5,16 +5,18 @@ import javax.persistence.PersistenceContext;
 
 import ec.ups.edu.EN.Libro;
 
+@Stateless
 public class LibroDAO {
-	
-	@PersistenceContext 
+
+	@PersistenceContext(name="EXAMENMurilloJordanPersistenceUnit")
 	private EntityManager em;
-	
-	public Libro buscarLibro(int id) {
-		Libro l = em.find(Libro.class, id);
-		return l;
+	public void insertar(Libro libro) {
+		em.persist(libro);
 	}
-	public void insert(Libro l) {
-		em.persist(l);
+	
+	public List<Libro> listar(){
+		String jpql = "SELECT l FROM Libro l";
+		Query q = em.createQuery(jpql, Libro.class);
+		return q.getResultList();
 	}
 }
